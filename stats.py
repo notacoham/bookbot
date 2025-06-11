@@ -13,5 +13,19 @@ def char_counter(book_string):
             char_dict[char] = 1  
         else:
             char_dict[char] += 1  
-
     return char_dict
+
+def sorted_dict(dictionary):
+    dict_list = []
+    for item in dictionary:
+        character_dictionary = {}
+        if item.isalpha():
+            count = dictionary[item]
+            character_dictionary = {
+                "char": item,
+                "num": count
+                }
+            dict_list.append(character_dictionary)
+    dict_list.sort(reverse=True, key=lambda d: d["num"])
+    for list_item in dict_list:
+        print(f"{list_item["char"]}: {list_item["num"]}")
